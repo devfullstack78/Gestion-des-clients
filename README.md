@@ -7,69 +7,55 @@ Cette solution est idéale pour les petites entreprises souhaitant une gestion s
 Technologies utilisées
 Electron.js : Création de l’application de bureau multiplateforme.
 
-Node.js : Communication entre l’interface et le serveur local.
+Node.js : Pour la communication entre l’interface et la base de données.
 
-PHP : Traitement des requêtes entre l'application et la base MySQL.
+PHP : Scripts côté serveur pour gérer les requêtes vers MySQL.
 
-MySQL : Stockage structuré des données clients.
+MySQL : Base de données pour stocker les informations clients.
 
 WAMP : Serveur local pour exécuter PHP et MySQL.
 
-HTML / CSS / JavaScript : Interface graphique de l'application.
+HTML / CSS / JavaScript : Interface utilisateur de l’application.
 
 Fonctionnalités principales
-Ajout de clients : via un formulaire.
+Ajout de clients : formulaire simple pour enregistrer un nouveau client dans la base de données.
 
-Modification : possibilité de mettre à jour les informations client.
+Modification des informations : possibilité d’éditer les informations existantes.
 
-Suppression : gestion et suppression de fiches client.
+Suppression de clients : supprimer un client de la base en un clic.
 
-Affichage en temps réel : liste mise à jour sans rechargement.
+Affichage dynamique : liste des clients actualisée en temps réel.
 
-Connexion sécurisée : pour éviter tout accès non autorisé.
+Connexion sécurisée : pour accéder à la base et limiter les accès.
 
-Structure du projet
-graphql
-Copier
-Modifier
-/GestionClients
-│
-├── /src
-│   ├── index.html       # Interface principale
-│   ├── style.css        # Feuilles de styles
-│   ├── main.js          # Lancement de la fenêtre Electron
-│   └── renderer.js      # Logique de l’interface utilisateur
-│
-├── /php
-│   ├── addClient.php    # Script PHP pour ajouter un client
-│   ├── updateClient.php # Script PHP pour modifier un client
-│   ├── deleteClient.php # Script PHP pour supprimer un client
-│   └── getClients.php   # Script PHP pour récupérer la liste
-│
-├── /database
-│   └── clients_db.sql   # Fichier SQL pour créer la base de données
-│
-├── package.json         # Configuration Electron et dépendances Node
-├── README.md            # Fichier de documentation (ce fichier)
-└── .gitignore           # Fichiers à ignorer par Git
 Installation et Lancement
-Installer WAMP et démarrer Apache + MySQL.
+Installer WAMP et démarrer le serveur local (Apache + MySQL).
 
-Créer une base de données clients_db dans phpMyAdmin.
+Configurer la base de données :
 
-Importer le fichier /database/clients_db.sql pour créer les tables.
+Créer une base dans phpMyAdmin (ex : clients_db).
 
-Cloner ou télécharger le projet.
+Importer le fichier .sql fourni (structure de la table clients).
 
-Validation des champs en JavaScript et PHP.
+Cloner ou télécharger le projet sur votre machine.
 
-Application accessible uniquement en local.
+Installer les dépendances Node.js :
+
+npm install
+Lancer l'application Electron :
+
+npm start
+
+Sécurité
+Validation côté serveur et client des champs de formulaire.
+
+Protection contre les injections SQL via requêtes préparées en PHP.
+
+Connexions locales sécurisées (pas d'accès distant).
 
 Résultats attendus
-Gestion rapide et fiable des fiches clients.
+Une application rapide et légère pour la gestion client locale.
 
-Interface claire et facile à utiliser.
+Une interface utilisateur claire et intuitive.
 
-Aucune dépendance à un service externe, tout reste local.
-
-✨ Projet développé par devfullstack78
+Une base de données facilement exploitable et sauvegardable via phpMyAdmin.
